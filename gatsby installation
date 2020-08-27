@@ -1,0 +1,55 @@
+cd ~
+curl -sL https://deb.nodesource.com/setup_8.x -o nodesource_setup.sh
+Run the script under sudo:
+
+sudo bash nodesource_setup.sh
+This will add the PPA and the local package cache will be updated automatically. After running the setup script you can then install Node.js like this:
+
+sudo apt install nodejs
+Now check your Node.js version to make sure it works with:
+
+nodejs -v
+Output:
+
+v8.12.0
+And check NPM version too:
+
+npm -v
+Output:
+
+6.4.1
+For some npm packages to work (compiling from source, for example) you’ll need the build-essential package.
+
+Install with:
+
+sudo apt install build-essential
+Now you have Node.js and NPM working you can move on to install Gatsby.
+
+Install Git and Gatsby CLI
+To install Gatsby you’ll first need to have the git package installed:
+
+sudo apt install git
+The Gatsby CLI tool enables you to create new sites, and run commands for developing Gatsby sites. It’s a published npm package you can easily install using the following command:
+
+sudo npm install --global gatsby-cli
+Check Gatsby installed properly with:
+
+gatsby -v
+Output:
+
+2.4.2
+Now Gatsby is installed you can create your first Gatsby test site:
+
+gatsby new hello-world https://github.com/gatsbyjs/gatsby-starter-hello-world
+This command created a directory called hello-world and downloaded the test site to it, you can now run the starter site with:
+
+cd hello-world
+gatsby develop
+Your Gatsby site is now running at http://localhost:8000 and should output Hello world!
+
+OR
+
+If you’re running Gatsby remotely you might want it on all IP addresses at port 80, do that with:
+
+cd hello-world
+gatsby develop -H 0.0.0.0 -p 80
